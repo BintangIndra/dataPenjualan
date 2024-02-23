@@ -14,9 +14,13 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -83,5 +87,27 @@
     </div>
 
     @yield('jsscript')
+
+    <script>
+        function hitApi(url,formdata){
+            $.ajax({
+                url: url,
+                headers: {
+                    'Authorization': 'Bearer ' + '{{ session('user_token') }}',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                data: formdata,
+                success: function(response) {
+                    console.log(response);
+                    alert('success!');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('Fail. Please try again.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

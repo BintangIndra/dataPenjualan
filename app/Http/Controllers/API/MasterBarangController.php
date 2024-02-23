@@ -24,7 +24,15 @@ class MasterBarangController extends Controller
 
     public function store(Request $request)
     {
-        return MasterBarang::create($request->all());
+        try {
+            $create = MasterBarang::create($request->all());
+            
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            return response()->json('QueryException', 500);
+        } catch (\Throwable $th) {
+            return 'error';
+        }
+        return $create;
     }
 
     public function show(MasterBarang $masterBarang)
