@@ -1,4 +1,4 @@
-Book managements
+Data Penjualan
 
 iam using laravel 10 requirement :
 
