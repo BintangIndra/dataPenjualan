@@ -1,3 +1,28 @@
+Book managements
+
+iam using laravel 10 requirement :
+
+php 8.1 mysql 5.1 step to install or using app:
+
+clone this repo
+open CMD or terminal
+goto cloned directory do this command :
+composer install
+cp .env.example .env
+php artisan key:generate
+make sure the destined table has been added to database 'dataPenjualan'
+php artisan migrate
+php artisan db:seed
+php artisan serve
+open other terminal
+go to project folder
+npm run dev
+
+for accessing api you just can accessit by running command:
+php artisan serve
+
+then you can hit it with postman
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
